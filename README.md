@@ -1,4 +1,4 @@
-# MT175_SML_Reader
+# MT175 SML to Influxdb2
 Reading SML-Messages from ISKRA MT175 and write them to influxdb2.
 
 This script es based on Alexander Kabza's work documented [here](http://www.kabza.de/MyHome/SmartMeter/SmartMeter.html). 
