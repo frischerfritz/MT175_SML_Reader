@@ -48,12 +48,11 @@ else:
     print ("You must set env SERIAL_PORT such as /dev/ttyS0")
     exit()
 
-# http://192.168.178.47:8086
 client = InfluxDBClient(url=influx_url , token=token)
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
 port = serial.Serial(
-    port='/dev/ttyS0',
+    port=serial_port,
     baudrate=9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,

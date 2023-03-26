@@ -5,19 +5,19 @@ This script es based on Alexander Kabza's work documented [here](http://www.kabz
 
 # Requirements
 
-* Raspberry Pi (actually everythin which runs Python and has a serial interface should work)
+* Raspberry Pi (actually everything which runs Python and has a serial interface should work)
 * bitShake SmartMeterReader UART (others should work as well)
 * unlocked ISKRA MT175 Smart-Meter (ask your Messtellenbetreiber for a PIN to unlock) 
 
 # Setup
 
-The easyst way to get the script running is to use [`pipenv`](https://pipenv.pypa.io/en/latest/installation/). 
+The easiest way to get the script running is to use [`pipenv`](https://pipenv.pypa.io/en/latest/installation/). 
 
 ```bash
 cd smlreader
 pipenv sync
 ```
-This installs all requiered python moduls. 
+This installs all required python modules. 
 
  # going live
 
