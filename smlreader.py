@@ -2,6 +2,7 @@
 # Python code to read values from Smart Meter via SML (smart message language) 
 # created: Alexander Kabza, Mar 1, 2016
 # last mod: Alexander Kabza, 2020-03-01
+# modified by AF 2023-03-26 for writing to influxdb2
 # For documentation and further information see http://www.kabza.de/MyHome/SmartMeter/SmartMeter.html
 # 
 # Start with nohup pipenv run python3 test.py &
@@ -18,35 +19,30 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 if os.environ.get('INFLUX_TOKEN') is not None:
-    # "gN29SqHM4heUp85gKtazyMQefLQzJtvwfjuLx7L3h9EYZ7uK4CoRthaksMq3800gM60XLkGk_7JdkIdNqwkr_Q=="
     token = os.environ.get('INFLUX_TOKEN') 
 else:
     print ("You must set env INFLUX_TOKEN")
     exit()
 
 if os.environ.get('INFLUX_ORG') is not None:
-# "bergstr"
     org = os.environ.get('INFLUX_ORG') 
 else:
     print ("You must set env INFLUX_ORG")
     exit()
 
 if os.environ.get('INFLUX_BUCKET') is not None:
-# "electricity"
     bucket = os.environ.get('INFLUX_BUCKET') 
 else:
     print ("You must set env INFLUX_BUCKET")
     exit()
 
 if os.environ.get('INFLUX_HOST') is not None:
-    # http://192.168.178.47:8086
     influx_url=os.environ.get('INFLUX_HOST')
 else:
     print ("You must set env INFLUX_BUCKET")
     exit()
 
 if os.environ.get('SERIAL_PORT') is not None:
-    # /dev/ttyS0
     serial_port=os.environ.get('SERIAL_PORT')
 else:
     print ("You must set env SERIAL_PORT such as /dev/ttyS0")
