@@ -178,5 +178,8 @@ while True:
             "power,L=L2 power="+str(powerL2), 
             "power,L=L3 power="+str(powerL3),
             "power,direction=in energy="+str(energy)]
-        write_api.write(bucket, org, sequence)      
+        try:
+            write_api.write(bucket, org, sequence)
+        except:
+            print("Could not write to influxdb: write_api.write(bucket, org, sequence)")
         data = ''
